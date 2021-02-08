@@ -1,0 +1,2 @@
+read MESSAGE
+echo ${MESSAGE^^}

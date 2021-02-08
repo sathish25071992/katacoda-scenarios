@@ -23,6 +23,15 @@ echo -e "# echo@.service
 Description = Echo server service
 
 [Service]
-ExecStart = <replace with clone directory>/echo.py
+ExecStart = /root/echo.py
 StandardInput = socket" > /etc/systemd/system/echo@.service
 ```{{execute}}
+
+Reload the systemd daemon
+
+`systemctl daemon-reload` {{execute}}
+
+Start the `echo.socket` service
+
+`systemctl start echo.socket` {{execute}}
+
