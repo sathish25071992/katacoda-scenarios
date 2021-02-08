@@ -32,7 +32,7 @@ StandardInput = socket" > /etc/systemd/system/echo@.service
  ## Create test script
  ```
  echo -e "read MESSAGE
- echo ${MESSAGE^^}" > /root/echo.sh && chmod +x /root/echo.sh
+ echo \${MESSAGE^^}" > /root/echo.sh && chmod +x /root/echo.sh
 ```{{execute}}
 
 ## Testing the services
