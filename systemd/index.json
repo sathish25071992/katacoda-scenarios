@@ -6,11 +6,11 @@
   "details": {
     "steps": [
       {
-        "title": "Step 1",
+        "title": "Systemd Socket Example",
         "text": "step1.md"
       },
       {
-        "title": "Step 2",
+        "title": "System Timer Example",
         "text": "step2.md"
       }
     ],
