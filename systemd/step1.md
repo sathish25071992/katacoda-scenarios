@@ -2,23 +2,27 @@
 
 Create a echo.socket file
 
-`echo -e "# echo.socket\
-[Unit]\
-Description = Echo server\
-\
-[Socket]\
-ListenStream = 4444\
-Accept = yes\
-\
-[Install]\
-WantedBy = sockets.target\" > /etc/systemd/system/echo.socket` {{execute}}
+```
+echo -e "# echo.socket
+[Unit]
+Description = Echo server
 
-* Create echo@.service file
+[Socket]
+ListenStream = 4444
+Accept = yes
 
-`echo -e "# echo@.service
+[Install]
+WantedBy = sockets.target" > /etc/systemd/system/echo.socket
+```{{execute}}
+
+Create echo@.service file
+
+```
+echo -e "# echo@.service
 [Unit]
 Description = Echo server service
 
 [Service]
 ExecStart = <replace with clone directory>/echo.py
-StandardInput = socket" > /etc/systemd/system/echo@.service` {{execute}}
+StandardInput = socket" > /etc/systemd/system/echo@.service
+```{{execute}}
