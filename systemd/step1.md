@@ -29,10 +29,11 @@ ExecStart = /root/echo.sh
 StandardInput = socket" > /etc/systemd/system/echo@.service
 ```{{execute}}
 
- ## Create test script
- ```
- echo -e "read MESSAGE
- echo \${MESSAGE^^}" > /root/echo.sh && chmod +x /root/echo.sh
+## Create test script
+```
+echo -e "#!/usr/bin/bash
+read MESSAGE
+echo \${MESSAGE^^}" > /root/echo.sh && chmod +x /root/echo.sh
 ```{{execute}}
 
 ## Testing the services
