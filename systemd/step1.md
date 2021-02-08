@@ -1,4 +1,6 @@
-## Creating the service files and test script
+This example scenario explains on how to use basic systemd socket service
+
+## Creating the service files
 
 Create a echo.socket file
 
@@ -23,15 +25,25 @@ echo -e "# echo@.service
 Description = Echo server service
 
 [Service]
-ExecStart = /root/echo.py
+ExecStart = /root/echo.sh
 StandardInput = socket" > /etc/systemd/system/echo@.service
 ```{{execute}}
 
+ ## Create test script
+ ```
+ echo -e "read MESSAGE
+ echo ${MESSAGE^^}" > /root/echo.sh && chmod +x /root/echo.sh
+```{{execute}}
+
+## Testing the services
 Reload the systemd daemon
 
-`systemctl daemon-reload` {{execute}}
+`systemctl daemon-reload`{{execute}}
 
 Start the `echo.socket` service
 
-`systemctl start echo.socket` {{execute}}
+`systemctl start echo.socket`{{execute}}
 
+Test the service with socat command. Type Input and hit enter.
+
+`socat - TCP:127.0.0.1:4444`{{execute}}
